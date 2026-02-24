@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Lower Pixel';
+    src: url('fonts/lower-pixel.regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: auto;
+    height: 100%;
+    margin: 0;
+}
+
+html.no-scroll, 
+body.no-scroll {
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    background: white;
+    user-select: none;
+    font-family: 'Lower Pixel', monospace;
+}
+
+.drag-region {
+    -webkit-app-region: drag;
+}
+
+.close-button {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.2s ease;
+    -webkit-app-region: no-drag;
+    z-index: 1000;
+}
+
+.close-button:hover {
+    color: #ff0000;
+}
+
+.close-button:active {
+    transform: scale(0.9);
+}
+
+.app {
+    padding: 16px;
+    -webkit-app-region: drag;
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    -webkit-app-region: no-drag;
+    font-family: 'Lower Pixel', monospace;
+}
+
+input, 
+textarea,
+select {
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 1rem;
+    padding: 1rem;
+}
+
+.icon-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    padding: 1rem;
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+}
+
+button:hover .icon-placeholder {
+    transform: scale(1.1);
+}
+
+button:active .icon-placeholder {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+/* Selects elements by id='backBtn' */
+#backBtn {
+    margin-bottom: 0rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0rem;
+}
+
+#categoryTitle {
+    text-align: center;
+    margin: 0;
+    flex: 1; 
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+}
+
+.space {
+    width: 100px;
+}
+
+/* Selects elements by class='results-container' */
+.results-container {
+    padding: 0 1rem 1rem 1rem;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.result-image {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.result-text {
+    flex: 1;
+}
+
+.idea-card {
+    margin: 0;
+}
