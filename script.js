@@ -1,10 +1,18 @@
-// Close button handler -> doesn't work
-const closeBtn = document.getElementById('closeBtn');
-if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-        window.close();
-    });
+// Close App
+function closeApp(e) {
+  e.preventDefault();
+  window.electronAPI.closeApp();
 }
+
+document.getElementById("closeBtn").addEventListener("click", closeApp);
+
+// // Minimize App
+// function minimizeApp(e) {
+//   e.preventDefault();
+//   window.electronAPI.minimizeApp();
+// }
+
+// document.getElementById("minBtn").addEventListener("click", minimizeApp);
 
 // Category button handler
 document.querySelectorAll('.container button').forEach(button => {

@@ -1,13 +1,12 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
+const path = require('path');
+
+let win; 
 
 function createWindow() {
     const win = new BrowserWindow({
         width: 600,
         height: 400,
-        minWidth: 600,
-        minHeight: 400,
-        maxWidth: 800,
-        maxHeight: 640,
         resizable: false,
         maximizable: false, 
         fullscreenable: false, 
@@ -17,12 +16,17 @@ function createWindow() {
         webPreferences: {
             contextIsolation: true,
             enableRemoteModule: false,
-            scrollBounce: true
+            scrollBounce: true,
+            preload: path.join(__dirname, 'preload.js')
         }
     });
 
     win.loadFile("index.html");
 }
+
+ipcMain.on('close-app', () => {
+    app.quit()
+});
 
 app.whenReady().then(createWindow);
 

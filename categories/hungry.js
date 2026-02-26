@@ -1,25 +1,23 @@
-const resultsContainer = document.getElementById('resultsContainer');
+const resultsContainer = document.querySelector('.results-container');  // Use existing class
 
 const dateIdeas = [
   {
-    title: 'Restaurant and Cafe Hunting',
-    description: 'Craving something? Go to your favorite places or maybe try something new!'
+    title: 'Restaurant And Cafe Hunting',
+    description: 'Craving something? Go to your favorite places or maybe try something new! Scour the internet for some hotspots!'
   },
   {
-    title: 'Cook on a Budget?',
-    description: 'Maybe just want some quality time making something from scratch together.'
+    title: 'Chef It Up',
+    description: 'On a budget? Want to make something from scratch? Challenge your cooking skills by trying out a new recipe!'
   },
   {
-    title: 'Cooking Challenge',
-    description: 'Challenge your cooking skills by trying out a recipe together!'
-  }
-  // Add more as needed
+    title: 'Create Your Own Cafe',
+    description: "Matcha latte. Hojicha chiffon cake. Lemon sorbet. Enjoy your favorite desserts and drinks, whether you buy it or bake it!"
+  },
 ];
 
 function displayResults() {
   resultsContainer.innerHTML = dateIdeas.map(idea => `
-    <div class="result-item idea-card">
-      <div class="result-image" style="background-color: #ff6b6b;"></div>
+    <div class="result-item">
       <div class="result-text">
         <h3>${idea.title}</h3>
         <p>${idea.description}</p>
@@ -28,4 +26,7 @@ function displayResults() {
   `).join('');
 }
 
-displayResults();
+// Run when loaded
+if (resultsContainer) {
+  displayResults();
+}
